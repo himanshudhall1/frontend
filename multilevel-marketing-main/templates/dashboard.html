@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-8">
+    <h3>Welcome, {{ member['name'] }}</h3>
+    <p><strong>Member Code:</strong> {{ member['member_code'] }}</p>
+    <p><strong>Email:</strong> {{ member['email'] }}</p>
+    <p><strong>Mobile:</strong> {{ member['mobile'] }}</p>
+    <p><strong>Left Count:</strong> {{ member['left_count'] }} | <strong>Right Count:</strong> {{ member['right_count'] }}</p>
+
+    <a class="btn btn-primary" href="{{ url_for('profile') }}">Profile View</a>
+    <a class="btn btn-secondary" href="{{ url_for('downline') }}">Check Downline (Left & Right)</a>
+  </div>
+</div>
+{% endblock %}

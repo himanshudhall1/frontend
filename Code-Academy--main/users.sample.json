@@ -1,0 +1,19 @@
+[
+  {
+    "id": "STU001",
+    "fullName": "Demo Student",
+    "username": "demo",
+    "email": "demo@codeacademy.com",
+    "password": "$2a$10$uJuP7GmgqtrERQfq62LTNuX0lGvTm1dQ7y1eodkbd4.Sy.1BjmjMW",
+    "joinDate": "2024-01-15T00:00:00.000Z",
+    "course": "Web Development",
+    "level": "Beginner",
+    "progress": 25,
+    "completedProjects": 2,
+    "totalProjects": 10,
+    "studyHours": 45,
+    "certificates": [],
+    "skills": ["HTML", "CSS"],
+    "status": "Active"
+  }
+]

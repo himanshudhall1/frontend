@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Academy Gatekeeper - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        <div class="floating-shape shape3"></div>
+        <div class="floating-shape shape4"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Code Academy</h1>
+            </div>
+            <p class="tagline">🔐 Gatekeeper - Secure Student Portal</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <a href="/" class="nav-link active">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="/signup" class="nav-link">
+                <i class="fas fa-user-plus"></i> Signup
+            </a>
+            <a href="/login" class="nav-link">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-card">
+                    <h2>🎯 Welcome to Code Academy Gatekeeper</h2>
+                    <p class="welcome-description">
+                        Your secure gateway to the Code Academy learning portal. 
+                        Only registered students can access our premium coding courses and resources.
+                    </p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Secure Access</h3>
+                            <p>Protected authentication system ensuring only authorized students can enter</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Student Portal</h3>
+                            <p>Access premium coding courses, tutorials, and learning resources</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-users"></i>
+                            <h3>Community</h3>
+                            <p>Join a community of passionate learners and coding enthusiasts</p>
+                        </div>
+                    </div>
+
+                    <div class="gate-icons">
+                        <div class="gate signup-gate">
+                            <i class="fas fa-door-open"></i>
+                            <h3>Signup Door</h3>
+                            <p>New to Code Academy? Create your student account</p>
+                            <a href="/signup" class="gate-btn">
+                                <i class="fas fa-user-plus"></i> Create Account
+                            </a>
+                        </div>
+                        <div class="gate login-gate">
+                            <i class="fas fa-door-closed"></i>
+                            <h3>Login Door</h3>
+                            <p>Already a student? Access your learning dashboard</p>
+                            <a href="/login" class="gate-btn">
+                                <i class="fas fa-sign-in-alt"></i> Enter Portal
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>🎓 About Code Academy</h3>
+                        <p>Code Academy is dedicated to providing high-quality programming education. Our gatekeeper system ensures a secure and personalized learning experience for every student.</p>
+                        <ul class="info-list">
+                            <li><i class="fas fa-check"></i> Interactive coding challenges</li>
+                            <li><i class="fas fa-check"></i> Project-based learning</li>
+                            <li><i class="fas fa-check"></i> Industry-expert mentorship</li>
+                            <li><i class="fas fa-check"></i> Certificate programs</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Code Academy. All rights reserved.</p>
+            <p>Secure learning portal powered by Gatekeeper technology.</p>
+        </footer>
+    </div>
+
+    <!-- Message Display -->
+    <div id="message-container" class="message-container"></div>
+
+    <script>
+        // Simple client-side navigation highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPath || 
+                    (currentPath === '/' && link.getAttribute('href') === '/')) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Add welcome animation
+            const welcomeCard = document.querySelector('.welcome-card');
+            if (welcomeCard) {
+                welcomeCard.classList.add('fade-in');
+            }
+        });
+
+        // Utility function to show messages
+        function showMessage(message, type = 'info') {
+            const messageContainer = document.getElementById('message-container');
+            const messageElement = document.createElement('div');
+            messageElement.className = `message ${type}`;
+            
+            const iconMap = {
+                success: 'fas fa-check-circle',
+                error: 'fas fa-exclamation-circle',
+                info: 'fas fa-info-circle'
+            };
+
+            messageElement.innerHTML = `
+                <i class="${iconMap[type]}"></i>
+                <span>${message}</span>
+            `;
+
+            messageContainer.appendChild(messageElement);
+
+            // Auto-remove message after 5 seconds
+            setTimeout(() => {
+                if (messageElement.parentNode) {
+                    messageElement.remove();
+                }
+            }, 5000);
+        }
+
+        // Check for URL parameters (e.g., success messages)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('message')) {
+            showMessage(urlParams.get('message'), urlParams.get('type') || 'info');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Academy - Student Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        <div class="floating-shape shape3"></div>
+        <div class="floating-shape shape4"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Code Academy</h1>
+            </div>
+            <p class="tagline">🎓 Student Learning Dashboard</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <a href="/" class="nav-link">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="/dashboard" class="nav-link active">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+            </a>
+            <a href="/students" class="nav-link">
+                <i class="fas fa-users"></i> Students
+            </a>
+            <a href="#" class="nav-link" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Section -->
+            <section class="dashboard-section">
+                <div class="dashboard-card">
+                    <div class="dashboard-header">
+                        <div class="user-info">
+                            <div class="avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="user-details">
+                                <h2 id="user-name">Welcome, Student!</h2>
+                                <p id="user-id" class="user-id">Student ID: Loading...</p>
+                                <p id="user-email" class="user-email">Email: Loading...</p>
+                            </div>
+                        </div>
+                        <div class="user-actions">
+                            <button class="action-btn" onclick="viewProfile()">
+                                <i class="fas fa-user"></i> Profile
+                            </button>
+                            <button class="logout-btn" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-content">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h3>Student Status</h3>
+                                <p class="stat-value">Active</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-calendar-alt"></i>
+                                <h3>Member Since</h3>
+                                <p class="stat-value" id="member-since">2024</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-users"></i>
+                                <h3>Total Students</h3>
+                                <p class="stat-value" id="total-students">0</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-shield-alt"></i>
+                                <h3>Security Level</h3>
+                                <p class="stat-value">Protected</p>
+                            </div>
+                        </div>
+                        
+                        <div class="welcome-message">
+                            <h3>🎉 Welcome to Code Academy Learning Portal!</h3>
+                            <p id="welcome-text">You have successfully passed through the Gatekeeper. Your learning journey begins now!</p>
+                            <div class="quick-actions">
+                                <button class="action-btn" onclick="startCourse()">
+                                    <i class="fas fa-play"></i> Start Learning
+                                </button>
+                                <button class="action-btn" onclick="viewCourses()">
+                                    <i class="fas fa-book"></i> Browse Courses
+                                </button>
+                                <button class="action-btn" onclick="viewProgress()">
+                                    <i class="fas fa-chart-line"></i> View Progress
+                                </button>
+                                <button class="action-btn" onclick="window.location.href='/students'">
+                                    <i class="fas fa-users"></i> View Students
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="recent-activity">
+                            <h3><i class="fas fa-clock"></i> Recent Activity</h3>
+                            <div class="activity-list" id="activity-list">
+                                <div class="activity-item">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    <div class="activity-details">
+                                        <h4>Logged in successfully</h4>
+                                        <p>Welcome back to Code Academy!</p>
+                                        <span class="activity-time" id="login-time">Just now</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Code Academy. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Message Display -->
+    <div id="message-container" class="message-container"></div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+        <p>Loading dashboard...</p>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

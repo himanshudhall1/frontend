@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Downline for {{ member['member_code'] }} - {{ member['name'] }}</h3>
+
+{% macro render_node(node) -%}
+  {% if not node %}
+    <div class="card p-2 mb-2">Empty</div>
+  {% else %}
+    <div class="card mb-2 p-2">
+      <div><strong>{{ node.member_code }}</strong> — {{ node.name }}</div>
+      <div>Left count: {{ node.left_count }} | Right count: {{ node.right_count }}</div>
+      <div class="row mt-2">
+        <div class="col-md-6">
+          <small class="text-muted">Left</small>
+          {{ render_node(node.left) }}
+        </div>
+        <div class="col-md-6">
+          <small class="text-muted">Right</small>
+          {{ render_node(node.right) }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{%- endmacro %}
+
+<div>
+  {{ render_node(subtree) }}
+</div>
+{% endblock %}

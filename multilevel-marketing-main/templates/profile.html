@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Profile</h3>
+<table class="table table-bordered">
+  <tr><th>Name</th><td>{{ member['name'] }}</td></tr>
+  <tr><th>Member Code</th><td>{{ member['member_code'] }}</td></tr>
+  <tr><th>Email</th><td>{{ member['email'] }}</td></tr>
+  <tr><th>Mobile</th><td>{{ member['mobile'] }}</td></tr>
+  <tr><th>Sponsor</th><td>{% if sponsor %} {{ sponsor['member_code'] }} - {{ sponsor['name'] }} {% else %} None {% endif %}</td></tr>
+  <tr><th>Left Count</th><td>{{ member['left_count'] }}</td></tr>
+  <tr><th>Right Count</th><td>{{ member['right_count'] }}</td></tr>
+</table>
+{% endblock %}

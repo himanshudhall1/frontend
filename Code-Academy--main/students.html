@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Academy - Students Directory</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        <div class="floating-shape shape3"></div>
+        <div class="floating-shape shape4"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Code Academy</h1>
+            </div>
+            <p class="tagline">👥 Students Directory</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <a href="/" class="nav-link">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="/dashboard" class="nav-link">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+            </a>
+            <a href="/students" class="nav-link active">
+                <i class="fas fa-users"></i> Students
+            </a>
+            <a href="#" class="nav-link" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Students Section -->
+            <section class="students-section">
+                <div class="students-card">
+                    <div class="students-header">
+                        <h2><i class="fas fa-users"></i> Registered Students</h2>
+                        <div class="students-controls">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="search-input" placeholder="Search students...">
+                            </div>
+                            <button class="refresh-btn" onclick="loadStudentsList()">
+                                <i class="fas fa-refresh"></i> Refresh
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="students-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <span>Total Students: <strong id="total-count">0</strong></span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-user-plus"></i>
+                            <span>New This Month: <strong id="new-count">0</strong></span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Active Learners: <strong id="active-count">0</strong></span>
+                        </div>
+                    </div>
+
+                    <div id="students-list" class="students-list">
+                        <!-- Students will be loaded here -->
+                        <div class="loading-message">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading students...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Code Academy. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Message Display -->
+    <div id="message-container" class="message-container"></div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+        <p>Loading students...</p>
+    </div>
+
+    <script src="students.js"></script>
+</body>
+</html>

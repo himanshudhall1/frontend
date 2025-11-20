@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <h3>Login</h3>
+    <form method="post">
+      <div class="mb-3">
+        <label>Member Code</label>
+        <input required name="member_code" class="form-control" placeholder="e.g. M00001 or ROOT0001">
+      </div>
+      <div class="mb-3">
+        <label>Mobile (used as password)</label>
+        <input required name="mobile" class="form-control">
+      </div>
+      <button class="btn btn-success">Login</button>
+    </form>
+    <p class="mt-3">New user? Use the <a href="{{ url_for('join') }}">Join</a> page.</p>
+  </div>
+</div>
+{% endblock %}

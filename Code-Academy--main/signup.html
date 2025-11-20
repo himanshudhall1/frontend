@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Academy - Student Signup</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        <div class="floating-shape shape3"></div>
+        <div class="floating-shape shape4"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Code Academy</h1>
+            </div>
+            <p class="tagline">🔐 Student Registration Portal</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <a href="/" class="nav-link">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="/signup" class="nav-link active">
+                <i class="fas fa-user-plus"></i> Signup
+            </a>
+            <a href="/login" class="nav-link">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Signup Form Section -->
+            <section class="form-section">
+                <div class="form-card">
+                    <div class="form-header">
+                        <i class="fas fa-user-plus"></i>
+                        <h2>Create Your Student Account</h2>
+                        <p>Join Code Academy and start your coding journey today!</p>
+                    </div>
+                    
+                    <form id="signup-form" class="auth-form">
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="signup-fullname" name="fullName" placeholder="Full Name" required>
+                            <span class="input-error" id="fullname-error"></span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <i class="fas fa-at"></i>
+                            <input type="text" id="signup-username" name="username" placeholder="Username (min 3 chars)" required>
+                            <span class="input-error" id="username-error"></span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="signup-email" name="email" placeholder="Email Address" required>
+                            <span class="input-error" id="email-error"></span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="signup-password" name="password" placeholder="Password (min 6 chars)" required>
+                            <span class="input-error" id="password-error"></span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm Password" required>
+                            <span class="input-error" id="confirm-password-error"></span>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms-checkbox" required>
+                            <label for="terms-checkbox">
+                                I agree to the <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" id="signup-btn">
+                            <i class="fas fa-rocket"></i> 
+                            <span>Create Account</span>
+                        </button>
+                    </form>
+                    
+                    <div class="form-footer">
+                        <p>Already have an account? 
+                            <a href="/login" class="link">Login here</a>
+                        </p>
+                        <a href="/" class="back-link">
+                            <i class="fas fa-arrow-left"></i> Back to Home
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Benefits Section -->
+                <div class="benefits-section">
+                    <h3>🌟 Why Join Code Academy?</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-code"></i>
+                            <h4>Hands-on Learning</h4>
+                            <p>Learn by coding real projects</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-certificate"></i>
+                            <h4>Certification</h4>
+                            <p>Earn industry-recognized certificates</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-users"></i>
+                            <h4>Community</h4>
+                            <p>Connect with fellow developers</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <h4>Modern Tech</h4>
+                            <p>Learn latest technologies and frameworks</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Code Academy. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Message Display -->
+    <div id="message-container" class="message-container"></div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+        <p>Creating your account...</p>
+    </div>
+
+    <script src="signup.js"></script>
+</body>
+</html>
